@@ -15,6 +15,16 @@ exports.createCard = async (req, res) => {
             });
         }
 
+        //find if any card exist with same title
+        const findCard = await Card.find({title:titlefetch});
+        if(findCard.length > 0){
+            res.status(500).json({
+                success:false,
+                message: 'Card with same Title already exist'
+            })
+            return;
+        }
+
         const newCard = await Card.create({ title : titlefetch, description: descriptionfetch });
         res.status(200).json({
             success: true,
@@ -28,6 +38,7 @@ exports.createCard = async (req, res) => {
             message: error.message
         });
     }
+    return;
 };
 
 //Get all card deatils
@@ -47,6 +58,7 @@ exports.getAllCard = async(req,res)=>{
             message: 'internal error'
         });
     }
+    return;
 }
 
 //delete cards
@@ -84,6 +96,7 @@ exports.deleteCard = async(req,res)=>{
             message: 'internal error'
         });
     }
+    return;
 }
 
 //fetch card details
@@ -116,4 +129,5 @@ exports.findCardDetails = async(req,res)=>{
             message: 'internal error'
         });
     }
+    return;
 }

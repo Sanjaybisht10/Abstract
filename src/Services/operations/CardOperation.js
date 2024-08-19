@@ -15,7 +15,6 @@ export const getAllCards = async () => {
       }
       result = response?.data?.data
     } catch (error) {
-      console.log("GET_ALL_COURSE_API API ERROR............", error)
       toast.error(error.message)
     }
     toast.dismiss(toastId)
@@ -27,7 +26,6 @@ export const addCardDetails = async(data)=>{
     let result = null;
     try {
         const response = await apiConnector("POST", ADDCARD_API,data,{"Content-Type": "multipart/form-data"})
-        console.log("ADD CARD API RESPONSE : ", response)
         if (!response?.data?.success) {
             throw new Error("Could Not Add Course Details")
           }
@@ -35,8 +33,7 @@ export const addCardDetails = async(data)=>{
           result = response?.data?.data
 
     } catch (error) {
-        console.log("ADD CARD API ERROR............", error)
-        toast.error(error.message)
+        toast.error(error?.response?.data?.message || error?.message );
     }
     toast.dismiss(toastId);
     return result;
@@ -47,14 +44,12 @@ export const fetchCardDetails = async(searchQuery)=>{
     let result = null;
     try {
         const response = await apiConnector("GET", `${GETCARDDETAILS_API}?searchQuery=${searchQuery}`)
-        console.log("ADD CARD API RESPONSE : ", response)
         if (!response?.data?.success) {
             throw new Error("Could Not Add Course Details")
           }
           result = response?.data?.data
 
     } catch (error) {
-        console.log("fetch CARD API ERROR : ", error)
         toast.error(error.message)
     }
     toast.dismiss(toastId);

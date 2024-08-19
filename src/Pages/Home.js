@@ -9,17 +9,13 @@ const Home = () => {
     const {handleSubmit} = useForm();
     const inputRef = useRef(null);
     const [cards, setCards ] = useState([]);
-    console.log(cards)
-
     const fetchCard = async() => {
         const searchQuery = inputRef.current.value.trim();
         if (searchQuery === '') {
             toast.error('Please enter the title! ');
             return;
         }
-        console.log('Input Value:', searchQuery);
         const result = await fetchCardDetails(searchQuery);
-        console.log(result)
         setCards(result)
     };
 

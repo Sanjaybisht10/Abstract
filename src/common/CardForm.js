@@ -15,7 +15,6 @@ const CardForm = () => {
         console.log('Added card result:', result);
 
         if (!result) {
-            toast.error('Something went wrong!');
             return;
         }
 
