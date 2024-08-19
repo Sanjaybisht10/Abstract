@@ -53,8 +53,8 @@ const Home = () => {
                             <div className="col-sm-6 mb-3 mb-sm-0 mt-5 mb-5" key={index}>
                                 <div className="card">
                                     <div className="card-body">
-                                        <h5 className="card-title">{val?.title}</h5>
-                                        <p className="card-text">{val?.description}</p>
+                                        <h5 className="card-title text-uppercase">{val?.title}</h5>
+                                        <p className="card-text" style={{textTransform:'capitalize'}}>{val?.description}</p>
                                     </div>
                                 </div>
                             </div>
