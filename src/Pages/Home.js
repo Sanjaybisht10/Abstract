@@ -39,7 +39,7 @@ const Home = () => {
                 <nav className="navbar mt-2 mb-5">
                     <form className="container-fluid">
                         <div className="input-group ">
-                            <input type="text" className="form-control border border-black" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" ref={inputRef}/>
+                            <input type="text" className="form-control border border-black" placeholder="Search by card title" aria-label="Username" aria-describedby="basic-addon1" ref={inputRef}/>
                             <span className="input-group-text ml-4 border border-black " id="basic-addon1" style={{cursor:'pointer'}}><FontAwesomeIcon icon={faArrowRight} onClick={handleSubmit(fetchCard)}/></span>
                         </div>
                     </form>
